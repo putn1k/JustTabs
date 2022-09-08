@@ -1,0 +1,7 @@
+[data-tabs="panel"] {
+  display: none;
+}
+
+[data-tabs="panel"].active-tab-panel {
+  display: block;
+}
