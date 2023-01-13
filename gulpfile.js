@@ -45,7 +45,7 @@ const stylesProd = () => {
       } )
     ] ) )
     .pipe( csscomb() )
-    .pipe( rename( 'justTabs.min.css' ) )
+    .pipe( rename( 'just-tabs.min.css' ) )
     .pipe( dest( './dist/' ) )
     .pipe( cleanCSS( {
       level: 2
@@ -67,7 +67,7 @@ const scriptsProd = () => {
     .pipe( babel( {
       presets: [ '@babel/env' ]
     } ) )
-    .pipe( rename( 'justTabs.min.js' ) )
+    .pipe( rename( 'just-tabs.min.js' ) )
     .pipe( uglify().on( "error", notify.onError() ) )
     .pipe( dest( './dist/' ) )
 }

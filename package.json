@@ -1,7 +1,7 @@
 {
-  "name": "justTabs",
-  "version": "0.1.0",
-  "description": "justTabs builder",
+  "name": "JustTabs",
+  "version": "0.1.1",
+  "description": "JustTabs builder",
   "main": "gulpfile.js",
   "scripts": {
     "dev": "gulp",

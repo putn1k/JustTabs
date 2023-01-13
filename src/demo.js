@@ -1,4 +1,4 @@
-const tabs = new justTabs( 'tabs-name', {
+const tabs = new JustTabs( 'tabs-name', {
   activeBtnClass: 'new_active_btn_class',
   activePanelClass: 'new_active_panel_class',
   isChanged: ( tabs ) => {

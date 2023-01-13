@@ -1,4 +1,4 @@
-# justTabs
+# JustTabs v0.1.1
 
 Простой и лёгкий плагин для табов
 
@@ -37,7 +37,7 @@
 
 4. Разместите следующий JS-код для подключения табов:
 ```javascript
-const tabs = new justTabs('tabs-name');
+const tabs = new JustTabs('tabs-name');
 ```
 
 ## Методы и свойства
@@ -49,7 +49,7 @@ tabs.switchTabs(document.querySelector('#tabs-name2'));
 
 2. Событие `isChanged` - срабатывает в момент переключения табов. Может принимать входной параметр - объект табов. Пример:
 ```javascript
-const tabs = new justTabs('tabs-name', {
+const tabs = new JustTabs('tabs-name', {
 	isChanged: (tabs) => {
 		console.log(tabs);
 	}
@@ -58,14 +58,14 @@ const tabs = new justTabs('tabs-name', {
 
 3. Установка класса активной кнопке таба 
 ```javascript
-const tabs = new justTabs('tabs-name', {
+const tabs = new JustTabs('tabs-name', {
   activeBtnClass: 'new_active_btn_class'
 });
 ```
 
 4. Установка класса активной панели 
 ```javascript
-const tabs = new justTabs('tabs-name', {
+const tabs = new JustTabs('tabs-name', {
   activePanelClass: 'new_active_panel_class'
 });
 ```
