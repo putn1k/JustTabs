@@ -1,1 +1,1 @@
-[data-tabs=panel]{display:none}[data-tabs=panel].active-tab-panel{display:block}
+[data-jtabs=panel]{display:none}[data-jtabs=panel].is-visible{display:block}
