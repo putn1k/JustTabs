@@ -1,0 +1,25 @@
+{
+  "root": true,
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "env": {
+    "es2020": true,
+    "browser": true
+  },
+  "globals": {
+    "JustTabs": "readonly",
+    "global": "readonly"
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "no-alert": "error",
+    "quotes": [ "error", "single" ],
+    "semi": "error",
+    "semi-style": "error",
+    "no-multi-spaces": "error",
+    "no-multiple-empty-lines": "error",
+    "no-trailing-spaces": "error"
+  }
+}

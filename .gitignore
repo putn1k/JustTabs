@@ -1,15 +1,12 @@
-# игнорировать файлы и каталоги сборки и зависимостей
-app/
-
-node_modules/
-
-# игнорировать файлы, созданные ОС
-ehthumbs.db
+# Файлы и папки операционной системы
+.DS_Store
 Thumbs.db
-*.DS_Store
 
-# игнорировать файлы настроек редакторов
-/.idea/
-*.sublime-project
-*.sublime-workspace
-*.komodoproject
+# Файлы редактора
+.idea
+*.sublime*
+.vscode
+
+# Вспомогательные файлы
+*.log*
+node_modules/
