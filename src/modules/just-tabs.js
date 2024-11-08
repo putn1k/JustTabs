@@ -74,6 +74,9 @@ export default class JustTabs {
       panel.setAttribute( 'aria-labelledby', this.#tabsControls[ index ].id );
     } );
     this.#tabsPanels[ this.#options.startTabIndex ].classList.add( Selectors.activePanelClass );
+
+    this.#options.el = this.#tabs;
+    this.#options.name = this.#tabs;
   }
 
   #addListeners() {
@@ -162,8 +165,8 @@ export default class JustTabs {
     }
   }
 
-  getOptions() {
-    return this.#options;
+  getOptions(option = null) {
+    return option ? this.#options[option] : this.#options;
   }
 
   switchTo( index ){
