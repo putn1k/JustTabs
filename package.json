@@ -1,6 +1,6 @@
 {
   "name": "plugin-builder",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "description": "Builder for plugin JustTabs",
   "author": "putn1k",
