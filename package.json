@@ -1,9 +1,7 @@
 {
   "name": "justtabs",
   "version": "1.1.5",
-  "main": "dist/just-tabs.min.js",
-  "module": "dist/just-tabs.min.js",
-  "style": "dist/just-tabs.min.css",
+  "main": "dist/just-tabs.js",
   "description": "Simple and lightweight JS library for tabs",
   "author": "putn1k",
   "license": "ISC",
@@ -22,9 +20,7 @@
       "import": "./dist/just-tabs.min.js"
     }
   },
-  "files": [
-    "dist"
-  ],
+  "files": [ "dist" ],
   "sideEffects": false,
   "keywords": [
     "JustTabs",
