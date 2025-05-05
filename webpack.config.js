@@ -30,7 +30,6 @@ module.exports = {
     library: {
       type: 'module',
     },
-    globalObject: 'this',
   },
   devtool: isProd ? false : 'source-map',
   optimization: {

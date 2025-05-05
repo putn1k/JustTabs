@@ -1,7 +1,7 @@
 {
   "name": "justtabs",
   "version": "1.1.4",
-  "main": "src/scripts/just-tabs.js",
+  "main": "dist/just-tabs.min.js",
   "module": "dist/just-tabs.min.js",
   "style": "dist/just-tabs.min.css",
   "description": "Simple and lightweight JS library for tabs",
