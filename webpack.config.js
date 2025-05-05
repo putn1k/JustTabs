@@ -20,11 +20,17 @@ const DEV_PLUGINS = [
 
 module.exports = {
   mode: isProd ? 'production' : 'development',
-  entry: './src/main.js',
+  entry: './src/index.js',
+  experiments: {
+    outputModule: true,
+  },
   output: {
     filename: `${PLUGIN_NAME}.min.js`,
     path: path.resolve( __dirname, 'dist' ),
-    clean: true,
+    library: {
+      type: 'module',
+    },
+    globalObject: 'this',
   },
   devtool: isProd ? false : 'source-map',
   optimization: {
