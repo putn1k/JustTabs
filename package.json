@@ -1,7 +1,7 @@
 {
   "name": "just-tabs",
-  "version": "1.1.0",
-  "main": "src/main.js",
+  "version": "1.1.1",
+  "main": "src/modules/just-tabs.js",
   "description": "Lightweight JS library for tabs",
   "author": "putn1k",
   "license": "ISC",
