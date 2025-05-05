@@ -1,5 +1,5 @@
 {
-  "name": "just-tabs",
+  "name": "justtabs",
   "version": "1.1.4",
   "main": "src/scripts/just-tabs.js",
   "module": "dist/just-tabs.min.js",
