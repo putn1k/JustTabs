@@ -1,4 +1,4 @@
-# JustTabs v1.2.2
+# JustTabs
 
 A simple and lightweight tab plugin
 
@@ -36,7 +36,7 @@ Or (for module bundlers):
 
 ```javascript
 import 'justtabs/dist/just-tabs.min.css';
-import JustTabs from 'justtabs';
+import JustTabs from 'just-tabs';
 ```
 
 3. Add the following HTML structure:
