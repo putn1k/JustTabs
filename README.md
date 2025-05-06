@@ -1,4 +1,4 @@
-# JustTabs v1.2.1
+# JustTabs v1.2.2
 
 A simple and lightweight tab plugin
 
