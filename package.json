@@ -2,7 +2,7 @@
   "name": "justtabs",
   "version": "1.2.0",
   "main": "dist/just-tabs.min.js",
-  "description": "Simple and lightweight JS library for tabs",
+  "description": "A simple and lightweight tab plugin",
   "author": "putn1k",
   "license": "ISC",
   "scripts": {
