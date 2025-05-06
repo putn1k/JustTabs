@@ -9,12 +9,15 @@
     "browser": true
   },
   "globals": {
-    "JustTabs": "readonly",
-    "global": "readonly"
+    "global": "readonly",
+    "JustTabs": "readonly"
   },
   "extends": "eslint:recommended",
   "rules": {
     "no-alert": "error",
+    "no-console": [ "error", {
+      "allow": [ "warn", "error" ]
+    } ],
     "quotes": [ "error", "single" ],
     "semi": "error",
     "semi-style": "error",

@@ -1,55 +1,89 @@
-const path = require( 'path' );
+const path = require('path');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require( "mini-css-extract-plugin" );
 const HtmlPlugin = require( 'html-webpack-plugin' );
-const TerserPlugin = require( 'terser-webpack-plugin' );
 
 const isProd = process.env.NODE_ENV === 'production';
+const LIB_NAME = 'JustTabs';
 const PLUGIN_NAME = 'just-tabs';
-
-const PROD_PLUGINS = [
-  new MiniCssExtractPlugin( {
-    filename: `${PLUGIN_NAME}.min.css`,
-  } ),
-];
-const DEV_PLUGINS = [
-  ...PROD_PLUGINS,
-  new HtmlPlugin( {
-    template: 'src/index.html',
-  } ),
-];
+const BANNER_TEXT = '@author putn1k\n' +
+                    `@source https://github.com/putn1k/JustTabs\n` +
+                    '@description Simple and lightweight JS library for tabs\n' +
+                    '@license ISC';
 
 module.exports = {
   mode: isProd ? 'production' : 'development',
-  entry: './src/index.js',
-  experiments: {
-    outputModule: true,
-  },
+  entry: [
+    './src/style/style.scss',
+    `./src/js/class.js`
+  ],
   output: {
-    filename: `${PLUGIN_NAME}.min.js`,
-    path: path.resolve( __dirname, 'dist' ),
-    library: {
-      type: 'module',
-    },
+    clean: true,
+    filename: `./${PLUGIN_NAME}.min.js`,
+    library: LIB_NAME,
+    libraryTarget: 'umd',
+    libraryExport: 'default',
+    umdNamedDefine: true
   },
   devtool: isProd ? false : 'source-map',
-  optimization: {
-    minimizer: [ new TerserPlugin() ],
+  plugins: [
+    new MiniCssExtractPlugin( {
+      filename: `./${PLUGIN_NAME}.min.css`,
+    } ),
+    new webpack.BannerPlugin({
+      test: /\.js$/,
+      banner: BANNER_TEXT
+    }),
+    new HtmlPlugin( {
+      template: 'src/index.html',
+      minify: false,
+      inject: false,
+      scriptLoading: 'blocking'
+    } )
+  ],
+  devServer: {
+    static: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 8080,
+    watchFiles: ['src/index.html'],
+    client: {
+      overlay: true
+    }
   },
-  plugins: isProd ? PROD_PLUGINS : DEV_PLUGINS,
   module: {
     rules: [ {
-        test: /\.m?js$/,
+        test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: [ '@babel/preset-env' ],
-          },
         },
       },
       {
-        test: /\.s[ac]ss$/i,
-        use: [ MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader' ]
+        test: /\.(sa|sc)ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  require('autoprefixer')
+                ]
+              }
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sassOptions: {
+                outputStyle: 'compressed',
+                sourceMap: true
+              }
+            }
+          }
+
+        ],
       },
     ],
   },

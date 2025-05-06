@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport"
         content="width=device-width, initial-scale=1">
+  <%= htmlWebpackPlugin.tags.headTags %>
   <title>Just Tabs</title>
 </head>
 
@@ -30,6 +31,10 @@
       <div data-jtabs="panel">Content 3</div>
     </div>
   </div>
+  <%= htmlWebpackPlugin.tags.bodyTags %>
+  <script>
+    new JustTabs( 'tabs' );
+  </script>
 </body>
 
 </html>
