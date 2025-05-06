@@ -1,21 +1,46 @@
-# JustTabs v1.2.0
+# JustTabs v1.2.1
 
-Простой и лёгкий плагин для вкладок
+A simple and lightweight tab plugin
 
-## Информация
+## Overview
 
-+ __Никаких зависимостей__. <br>
-Библиотека написана на чистом JavaScript, для работы не требуются иные библиотеки.
-+ __Простота и функциональность__. <br>
-Вы можете легко и быстро подключить и использовать библиотеку, которая реализует важный функционал для вкладок
-+ __Доступность__. <br>
-Плагин отвечает всем правилам доступности.
-+ __Настройка с помощью CSS__. <br>
-Вы можете легко менять внешний вид, расположение с помощью CSS.
++ __No dependencies.__ <br>
+The library is written in pure JavaScript and requires no additional dependencies.
 
-1. Скачайте js-библиотеку just-tabs.min.js и файл стилей just-tabs.min.css
-2. Подключите эти файлы к проекту
-3. Поместите в ваш html-документ следующую разметку:
++ __Simplicity and functionality.__ <br>
+Easily integrate and use the library to implement essential tab functionality.
+
++ __Accessibility.__ <br>
+The plugin follows all accessibility best practices.
+
++ __CSS customization.__ <br>
+Modify the appearance and layout effortlessly using CSS.
+
+## Installation
+
+1. Download the JS library __just-tabs.min.js__ and the stylesheet __just-tabs.min.css__  from the `dist` folder.<br>
+Alternatively, install via NPM:
+
+```
+npm i justtabs
+```
+
+2. Include the files in your project:
+
+```html
+<link rel="stylesheet" href="just-tabs.min.css">
+<script src="just-tabs.min.js"></script>
+```
+
+Or (for module bundlers): 
+
+```javascript
+import 'justtabs/dist/just-tabs.min.css';
+import JustTabs from 'justtabs';
+```
+
+3. Add the following HTML structure:
+
 ```html
 <div data-jtabs="tabs">
   <ul data-jtabs="nav">
@@ -40,45 +65,48 @@
 </div>
 ```
 
-> `data-jtabs` - важный дата-атрибут, через который и работает все взаимодействие с плагином.
+> The `data-jtabs` attribute is essential for plugin functionality.
 
-4. Разместите следующий JS-код для подключения вкладок:
+4. Initialize the library:
+
 ```javascript
 new JustTabs( 'tabs' );
 ```
 
-## Конфигурация плагина
+## Plugin Configuration
 
-Экземпляр JustTabs принимает первым аргументом имя (обязательный аргумент), а вторым объект конфигурации (необязательный аргумент).
+The JustTabs constructor accepts two arguments:
 
-1. Вы можете сразу активировать нужную вкладку при загрузке страницы, указав в объекте конфигурации свойство `startTabIndex` со значением стартового индекса. Пример:
+* __Required__: A name (string) for the tab instance.
+* __Optional__: A configuration object.
+
+### Features
+
+1. Set an active tab on load by specifying `startTabIndex`:
+
 ```javascript
 new JustTabs( 'tabs', {
 	startTabIndex: 1
 } );
 ```
 
-2. Вы можете осуществить переход к нужной вкладке с помощью метода `switchTo`, указав параметр индекса вкладки, на которую нужно совершить переход. Пример:
+2. Programmatically switch tabs using the `switchTo` method (pass the target tab index):
+
 ```javascript
 const tabs = new JustTabs( 'tabs' );
 tabs.switchTo( 2 );
 ```
 
-3. Вы можете получить объект конфигурации с помощью метода `getOptions`. Пример:
+3. Retrieve configuration via `getOptions()`:
+
 ```javascript
 const tabs = new JustTabs( 'tabs' );
-tabs.getOptions();
+tabs.getOptions(); // Returns full config object
+tabs.getOptions('el'); // Returns the root HTML element
 ```
 
-Также можно получить опцию по ключу, задав имя ключа в параметре метода. Пример:
-```javascript
-const tabs = new JustTabs( 'tabs' );
-tabs.getOptions('el');
-```
-Получим HTML-элемент табов.
+4. Callback on initialization (`onInit`):
 
-
-4. В конфигурационном файле в свойстве `onInit` можно указать колбек-функцию. Колбек может принимать входной параметр - экземпляр объекта. Колбек `onInit` срабатывает в момент инициализации плагина. Пример:
 ```javascript
 new JustTabs( 'tabs', {
 	onInit: ( tabs ) => {
@@ -87,7 +115,8 @@ new JustTabs( 'tabs', {
 } );
 ```
 
-5. В конфигурационном файле в свойстве `onSwitch` можно указать колбек-функцию. Колбек может принимать входной параметр - экземпляр объекта. Колбек `onSwitch` срабатывает в момент переключения вкладок.  Пример:
+5. Callback on tab switch ( `onSwitch`):
+
 ```javascript
 new JustTabs( 'tabs', {
 	onSwitch: ( tabs ) => {
